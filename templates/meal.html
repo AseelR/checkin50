@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Meal Time
+{% endblock %}
+
+{% block main %}
+<h1> Meals </h1>
+<hr>
+<table class = "table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th> Friend Username </th>
+            <th> Meal </th>
+            <th> Dining Hall Location </th>
+            <th> Start Time </th>
+            <th> End Time </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in meals %}
+        <tr>
+            <td> {{ row.username }} </td>
+            <td> {{ row.mealtype }} </td>
+            <td> {{ row.dhall }} </td>
+            <td> {{ row.mealstart }} </td>
+            <td> {{ row.mealend }} </td>
+        {% endfor %}
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,211 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Daily Form
+{% endblock %}
+
+{% block main %}
+<p>Fill out this form to ADD or UPDATE your plans for the day.</p>
+<p>Be sure to fill out the correct "meal" or "session" row to indicate your specific change in plans! </p>
+
+    <!-- all of the options show up but have a textbox or checkbox to let them know functionality of the form -->
+    <form action="/formpage" method="post">
+    <div class = "container">
+        
+        
+<!-- MEAL PLANS SECTION  -->
+
+        <h1>Meal Times</h1>
+        <div class = "row">
+<!--             create a dropdown menu for dining halls  -->
+            <div class="mb-3 col-md-4">
+                <label for="dhall1">Breakfast:</label>
+                <select name="dhall0">
+                {% for dhall in ["Annenberg", "Adams House", "Cabot House", "Currier House", "Dunster House", "Eliot House", "Kirkland House", "Leverett House", "Lowell House", "Mather House", "Pforzheimer House", "Quincy House", "Winthrop House", "Hillel Dining"]%}
+                <option value="{{ dhall }}">{{ dhall }}</option>
+                {% endfor %}
+                </select>
+            </div>
+<!--             meal start time with input type as time  -->
+            <div class="mb-3 col-md-4" >
+                <label for="mealstart">Meal start time:</label>
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="mealstart0" placeholder="Start Time" type="time">
+            </div>
+ <!--             meal end time with input type as time  -->
+
+            <div class="mb-3 col-md-4">
+                <label for="mealend">Meal end time:</label>
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="mealend0" placeholder="End Time" type="time">
+            </div>
+        </div>
+        
+<!--        repeat general structure for lunch and dinner -->
+        <div class = "row">
+            <div class="mb-3 col-md-4">
+                <label for="dhall1">Lunch:</label>
+                <select name="dhall1">
+                {% for dhall in ["Annenberg", "Adams House", "Cabot House", "Currier House", "Dunster House", "Eliot House", "Kirkland House", "Leverett House", "Lowell House", "Mather House", "Pforzheimer House", "Quincy House", "Winthrop House", "Hillel Dining"]%}
+                <option value="{{ dhall }}">{{ dhall }}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3 col-md-4" >
+                <label for="mealstart">Meal start time:</label>
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="mealstart1" placeholder="Start Time" type="time">
+            </div>
+            <div class="mb-3 col-md-4">
+                <label for="mealend">Meal end time:</label>
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="mealend1" placeholder="End Time" type="time">
+            </div>
+        </div>
+        <div class = "row">
+            <div class="mb-3 col-md-4">
+                <label for="dhall2">Dinner:</label>
+                <select name="dhall2">
+                {% for dhall in ["Annenberg", "Adams House", "Cabot House", "Currier House", "Dunster House", "Eliot House", "Kirkland House", "Leverett House", "Lowell House", "Mather House", "Pforzheimer House", "Quincy House", "Winthrop House", "Hillel Dining"]%}
+                <option value="{{ dhall }}">{{ dhall }}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3 col-md-4" >
+                <label for="mealstart">Meal start time:</label>
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="mealstart2" placeholder="Start Time" type="time">
+            </div>
+            <div class="mb-3 col-md-4">
+                <label for="mealend">Meal end time:</label>
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="mealend2" placeholder="End Time" type="time">
+            </div>
+        </div>
+    </div>
+<!-- STUDY PLANS SECTION  -->
+    <h1>Study Time</h1>
+    <div class = "row">
+        
+<!--         Study location as open ended entry -->
+        <div class="mb-3 col-md-4">
+            <label for="study0">Study Session 1:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="study0" placeholder="Study Location" type="text">
+        </div>
+        
+<!--         study start time as time input type -->
+        <div class="mb-3 col-md-4">
+            <label for="studystart">Study start time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="studystart0" placeholder="Start Time" type="time">
+        </div>
+        
+<!--         study end time as time input type -->
+        <div class="mb-3 col-md-4">
+            <label for="studyend">Study end time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="studyend0" placeholder="End Time" type="time">
+        </div>
+
+<!--      recreate structure for session 2 and session 3 -->
+        <div class="mb-3 col-md-4">
+            <label for="study1">Study Session 2:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="study1" placeholder="Study Location" type="text">
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="studystart">Study start time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="studystart1" placeholder="Start Time" type="time">
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="studyend">Study end time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="studyend1" placeholder="End Time" type="time">
+        </div>
+
+        <div class="mb-3 col-md-4">
+            <label for="study2">Study Session 3:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="study2" placeholder="Study Location" type="text">
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="studystart">Study start time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="studystart2" placeholder="Start Time" type="time">
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="studyend">Study end time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="studyend2" placeholder="End Time" type="time">
+        </div>
+    </div>
+        
+        
+        
+<!-- EXERCISE PLANS SECTION  -->
+        
+<!--     open ended exercise location entry -->
+        
+    <h1>Exercise time</h1>
+    <div class = "row">
+        <div class="mb-3 col-md-4">
+            <label for="exercise">Exercise Session:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="exercise" placeholder="Exercise Location" type="text">
+        </div>
+        
+<!--         exercise start time with time input type   -->
+        <div class="mb-3 col-md-4">
+            <label for="exercisestart">Exercise start time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="exercisestart" placeholder="Start Time" type="time">
+        </div>
+        
+<!--         exercise start time with time input type   -->
+        <div class="mb-3 col-md-4">
+            <label for="exerciseend">Exercise end time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="exerciseend" placeholder="End Time" type="time">
+        </div>
+    </div>
+        
+        
+<!-- CHILL TIME PLANS SECTION  -->
+
+    <h1>Chill time</h1>
+    <div class = "row">
+<!--         open ended chill location entry  -->
+        <div class="mb-3 col-md-4">
+            <label for="chill0">Chill Session 1:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="chill0" placeholder="Chill Location" type="text">
+        </div>
+        
+<!--         start time with input type = time  -->
+        <div class="mb-3 col-md-4">
+            <label for="chillstart">Chill start time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="chillstart0" placeholder="Start Time" type="time">
+        </div>
+        
+<!--         end time with input type = time  -->
+        <div class="mb-3 col-md-4">
+            <label for="chillend">Chill end time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="chillend0" placeholder="End Time" type="time">
+        </div>
+
+<!-- repeat structure for session 2 and session 3  -->
+        <div class="mb-3 col-md-4">
+            <label for="chill1">Chill Session 2:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="chill1" placeholder="Chill Location" type="text">
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="chillstart">Chill start time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="chillstart1" placeholder="Start Time" type="time">
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="chillend">Chill end time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="chillend1" placeholder="End Time" type="time">
+        </div>
+
+
+        <div class="mb-3 col-md-4">
+            <label for="chill2">Chill Session 3:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="chill2" placeholder="Chill Location" type="text">
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="chillstart">Chill start time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="chillstart2" placeholder="Start Time" type="time">
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="chillend">Chill end time:</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="chillend2" placeholder="End Time" type="time">
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit Plans</button>
+
+    </form>
+{% endblock %}

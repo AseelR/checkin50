@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Exercise Time
+{% endblock %}
+
+{% block main %}
+<h1> Exercise </h1>
+<hr>
+<table class = "table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th> Friend Username </th>
+            <th> Location </th>
+            <th> Start Time </th>
+            <th> End Time </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in exercise %}
+        <tr>
+            <td> {{ row.username }} </td>
+            <td> {{ row.exercise }} </td>
+            <td> {{ row.exercisestart }} </td>
+            <td> {{ row.exerciseend }} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

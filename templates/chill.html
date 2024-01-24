@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chill Time
+{% endblock %}
+
+{% block main %}
+<h1> Chill </h1>
+<hr>
+<table class = "table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th> Friend Username </th>
+            <th> Chill Session </th>
+            <th> Location </th>
+            <th> Start Time </th>
+            <th> End Time </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in chill %}
+        <tr>
+            <td> {{ row.username }} </td>
+            <td> {{ row.chilltype }} </td>
+            <td> {{ row.chill }} </td>
+            <td> {{ row.chillstart }} </td>
+            <td> {{ row.chillend }} </td>
+        {% endfor %}
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

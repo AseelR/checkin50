@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Day
+{% endblock %}
+
+<!-- References:
+    https://getbootstrap.com/docs/4.0/content/tables/
+-->
+
+{% block main %}
+<h1> Welcome {{ username }}, here's what's on the schedule today! </h1>
+<!-- Select all activities on the day for that person in a table-->
+<table class = "table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th> Activity </th>
+            <th> Session Type </th>
+            <th> Location </th>
+            <th> Start Time </th>
+            <th> End Time </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in meals %}
+        <tr>
+            <td> Meals </td>
+            <td> {{ row.mealtype }} </td>
+            <td> {{ row.dhall }} </td>
+            <td> {{ row.mealstart }} </td>
+            <td> {{ row.mealend }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for row in study %}
+        <tr>
+            <td> Study </td>
+            <td> {{ row.studytype }} </td>
+            <td> {{ row.study }} </td>
+            <td> {{ row.studystart }} </td>
+            <td> {{ row.studyend }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for row in exercise %}
+        <tr>
+            <td> Exercise </td>
+            <td> N/A </td>
+            <td> {{ row.exercise }} </td>
+            <td> {{ row.exercisestart }} </td>
+            <td> {{ row.exerciseend }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for row in chill %}
+        <tr>
+            <td> Chill </td>
+            <td> {{ row.chilltype }} </td>
+            <td> {{ row.chill }} </td>
+            <td> {{ row.chillstart }} </td>
+            <td> {{ row.chillend }} </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

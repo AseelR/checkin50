@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+
+<!-- References:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null -->
+
+
+<body>
+    <form action = "/login" method = "post">
+<!--         Spots for inputting username/password and entering -->
+        <input autocomplete = "off" autofocus name = "username" placeholder = "Username" type = "text" id = "Username">
+        <input autocomplete = "off" autofocus name = "password" placeholder = "Password" type = "password" id = "Password">
+        <button type = "submit" id = "login"> Login </button>
+        <div>
+<!--         displays error if there is one -->
+        {% if loginerror %}
+        <p> {{ loginerror }} </p>
+        {% endif %}
+        </div>
+    </form>
+</body>
+{% endblock %}

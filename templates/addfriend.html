@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Friends
+{% endblock %}
+
+{% block main %}
+
+<!-- Input field to add a new friend -->
+
+<form action = "/addfriend" method = "post">
+    <input autocomplete = "off" autofocus name = "friendname" placeholder = "Username" type = "text" id = "friendname">
+    <button type = "submit" id = "submit"> Add Friend </button>
+    <p></p>
+
+<!--  Field for error message (generated on app.py) if there is one -->
+{% if error %}
+<p> {{ error }} </p>
+{% endif %}
+
+</form>
+
+<!-- Table with all of user's friends  -->
+<h2> Your Friends </h2>
+<h5> You will be able to see the schedules of these users, who have all accepted your friend request </h5>
+<div>
+    <table class = "table table-bordered table-dark table-striped">
+        <thead>
+            <tr>
+                <th> Friend Name </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in yourfriends %}
+            <tr>
+                <td> {{ row.friend2username }} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<p></p>
+<p> Total friends: {{ friendtotal }} </p>
+
+<!-- Drop down menu to remove friends  -->
+<form action = "/removefriend" method = "post">
+    <select class = "form-select mx-auto w-auto" name = "removefriend">
+        <option disabled selected> Your Friends </option>
+        {% for row in yourfriends %}
+        <option value = "{{ row.friend2username }}"> {{ row.friend2username }} </option>
+        {% endfor %}
+    </select>
+    <button class="btn btn-primary" type="submit"> Remove </button>
+</form>
+<p></p>
+<p></p>
+<p></p>
+<!-- Table of pending friend requests  -->
+<h2> Friend Requests </h2>
+<h5> If you accept their request, these users can see your schedule </h5>
+<div>
+    <table class = "table table-bordered table-dark table-striped">
+        <thead>
+            <tr>
+                <th> Friend Name </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in friendspending %}
+            <tr>
+                <td> {{ row.friend1username }} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<!-- Buttons to either accept or remove friend request -->
+<form action = "/acceptrequest" method = "post">
+    <select class = "form-select mx-auto w-auto" name = "request">
+        <option disabled selected> Pending Requests </option>
+        {% for row in friendspending %}
+        <option value = "{{ row.friend1username }}"> {{ row.friend1username }} </option>
+        {% endfor %}
+    </select>
+    <button class="btn btn-primary" type="submit" name = "button" value = "Accept"> Accept </button>
+    <button class="btn btn-primary" type="submit" name = "button" value = "Remove"> Remove </button>
+</form>
+{% endblock %}

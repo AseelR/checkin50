@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<!-- Sources:
+    https://www.tutorialspoint.com/check-if-value-is-empty-in-javascript#:~:text=Use%20the%20condition%20with%20%E2%80%9C%E2%80%9D%20and,fill%20the%20text%20box%20value.
+    https://blog.hubspot.com/website/comment-out-in-html#:~:text=In%20HTML%2C%20a%20comment%20is,rendered%20on%20the%20front%20end.
+    https://www.w3schools.com/js/js_arrays.asp
+    https://www.tutorialkart.com/javascript/javascript-iterate-over-characters-of-a-string/
+    https://stackoverflow.com/questions/1027224/how-can-i-test-if-a-letter-in-a-string-is-uppercase-or-lowercase-using-javascrip
+    https://developer.mozilla.org/en-US/search?q=Logical%20AND--
+    https://www.w3schools.com/jsref/jsref_touppercase.asp
+    https://getbootstrap.com/docs/5.2/forms/overview/
+    https://getbootstrap.com/docs/5.2/components/alerts/-->
+
+
+<form action = "/register" method = "post">
+    <input autocomplete = "off" autofocus name = "user" placeholder = "Username" type = "text" id = "username">
+    <input autocomplete = "off" name = "password" placeholder = "Password" type = "password" id = "password">
+    <input autocomplete = "off" name = "passconfirm" placeholder = "Confirm Password" type = "password">
+    <button type = "submit" id = "register">Register</button>
+    <p>
+    </p>
+    <p> Password must be at least 8 characters and include at least one number, capital letter, and symbol </p>
+    
+<!--     if there is an error, display message here  -->
+    {% if registererror %}
+    <p> {{ registererror }} </p>
+    {% endif %}
+</form>
+{% endblock %}

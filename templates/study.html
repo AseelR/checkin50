@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Study Time
+{% endblock %}
+
+{% block main %}
+<h1> Studying </h1>
+<hr>
+<table class = "table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th> Friend Username </th>
+            <th> Study Session </th>
+            <th> Location </th>
+            <th> Start Time </th>
+            <th> End Time </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in study %}
+        <tr>
+            <td> {{ row.username }} </td>
+            <td> {{ row.studytype }} </td>
+            <td> {{ row.study }} </td>
+            <td> {{ row.studystart }} </td>
+            <td> {{ row.studyend }} </td>
+        {% endfor %}
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
